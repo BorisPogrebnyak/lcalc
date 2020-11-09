@@ -1,5 +1,5 @@
-'use strict';
+"use strict";
 
-import React from 'react';
+import React from "react";
 
-export const CurrentDate = () => <p> Сегодня: {new Date().toLocaleDateString()}</p >
+export const CurrentDate = () => <span>{new Date().toLocaleDateString()}</span>;

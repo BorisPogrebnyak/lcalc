@@ -2,6 +2,13 @@
 
 import React from "react";
 
-export const CurrentDate = () => (
-  <p> Сегодня: {new Date().toLocaleDateString()}</p>
+// import { CurrentDate } from "./CurrentDate";
+// import { CurrentTime } from "./CurrentTime";
+
+export const CurrentDateTime = () => (
+  <p>
+    Сегодня:
+    {/* <CurrentDate />
+    <CurrentTime /> */}
+  </p>
 );
