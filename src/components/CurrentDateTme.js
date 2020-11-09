@@ -2,11 +2,13 @@
 
 import React from "react";
 
+import "../styles.css";
+
 import { CurrentDate } from "./CurrentDate";
 import { CurrentTime } from "./CurrentTime";
 
 export const CurrentDateTime = () => (
-  <p>
+  <p className="CurrentDateTime">
     Сегодня:
     &nbsp;
     <CurrentDate />
