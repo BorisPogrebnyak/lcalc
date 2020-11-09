@@ -2,7 +2,7 @@ import React from "react";
 
 import "./styles.css";
 
-import { CurrentDateTime } from "./components/CurrentDateTme";
+import { CurrentDateTime } from "./components/CurrentDateTime";
 
 export default function App() {
   return (
