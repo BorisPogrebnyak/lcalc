@@ -2,13 +2,15 @@
 
 import React from "react";
 
-// import { CurrentDate } from "./CurrentDate";
-// import { CurrentTime } from "./CurrentTime";
+import { CurrentDate } from "./CurrentDate";
+import { CurrentTime } from "./CurrentTime";
 
 export const CurrentDateTime = () => (
   <p>
     Сегодня:
-    {/* <CurrentDate />
-    <CurrentTime /> */}
+    &nbsp;
+    <CurrentDate />
+    &nbsp;
+    <CurrentTime />
   </p>
 );
