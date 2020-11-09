@@ -10,8 +10,10 @@ import {
 const initialURL = (currentDate = new Date()) => {
   return {
     proxy: "https://cors-anywhere.herokuapp.com/",
-    base: "https://kis.kname.edu.ua",
-    offset: "/timeTable/teacher",
+    // base: "https://kis.kname.edu.ua",
+    // offset: "/timeTable/teacher",
+    base: "https://erp.kname.edu.ua",
+    offset: "/time-table/teacher",
     params: [
       {
         // [0] - Филиал
