@@ -1,3 +1,6 @@
+// Спер отсюда:
+// Как создать динамические часы на React?
+// https://blog.myrusakov.ru/reactjs-comp.html
 "use strict";
 
 import React from "react";
