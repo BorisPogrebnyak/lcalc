@@ -5,15 +5,23 @@ import moment from "moment";
 
 import "../styles.css";
 
-class CurrentMoment extends React.Component {
+export class CurrentMoment extends React.Component {
   constructor(props) {
     super(props);
     this.state = { currentMoment: moment() };
   }
 
+  componentDidMount() {
+    const self = this;
+
+    this.interval = setInterval(() => {
+      self.setState({ currentMoment: moment() });
+    }, 1000);
+  }
+
   render() {
     return (
-      <div>
+      <div className="CurrentMoment">
         Сегодня: &nbsp;
         {this.state.currentMoment.format("DD.MM.YYYY HH:mm:ss")}
       </div>
