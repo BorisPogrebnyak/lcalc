@@ -17,7 +17,6 @@ export default function App() {
       <Provider store={store}>
         <DepartmentsContainer />
       </Provider>
-      ,
     </div>
   );
 }

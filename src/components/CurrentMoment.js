@@ -16,8 +16,11 @@ export class CurrentMoment extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(() => this.setState({ currentMoment: moment() }), 1000);
+    this.tick();
   }
+
+  tick = () =>
+    setInterval(() => this.setState({ currentMoment: moment() }), 1000);
 
   render() {
     return (
