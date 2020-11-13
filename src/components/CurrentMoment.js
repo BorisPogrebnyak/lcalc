@@ -1,3 +1,7 @@
+// Спер и упростил отсюда:
+// Как создать динамические часы на React?
+// https://blog.myrusakov.ru/reactjs-comp.html
+
 "use strict";
 
 import React from "react";
@@ -12,17 +16,13 @@ export class CurrentMoment extends React.Component {
   }
 
   componentDidMount() {
-    const self = this;
-
-    this.interval = setInterval(() => {
-      self.setState({ currentMoment: moment() });
-    }, 1000);
+    setInterval(() => this.setState({ currentMoment: moment() }), 1000);
   }
 
   render() {
     return (
       <div className="CurrentMoment">
-        Сегодня: &nbsp;
+        Сегодня:&nbsp;
         {this.state.currentMoment.format("DD.MM.YYYY HH:mm:ss")}
       </div>
     );
