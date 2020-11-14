@@ -48,7 +48,15 @@ export const fetchTeachers = URL => {
         return res.text();
       })
       .then(html => {
-        const teachersForView = Array.from(cheerio.load(html)("#TimeTableForm_teacher option"), teacher => ({
+        // console.log('actons: ' + html);
+        // const teachersForView = Array.from(cheerio.load(html)("#TimeTableForm_teacher option"), teacher => ({
+        //   ID: teacher.attribs.value,      // Код преподавателя
+        //   name: teacher.children[0].data, // ФИО, должность
+        //   coeffRate: 1,                   // Коэф. ставки
+        // })
+        // ).slice(1);                       // Без 1-й строки-пустышки
+        console.log('actons: ' + cheerio.load(html));
+        const teachersForView = Array.from(cheerio.load(html)("#timetableform-teacherid option"), teacher => ({
           ID: teacher.attribs.value,      // Код преподавателя
           name: teacher.children[0].data, // ФИО, должность
           coeffRate: 1,                   // Коэф. ставки

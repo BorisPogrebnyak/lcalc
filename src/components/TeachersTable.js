@@ -9,6 +9,7 @@ export default class TeachersTable extends Component {
   render() {
     const { URL, teachers, lessons } = this.props;
     const { hasErrored, isLoading, teachersForView, teachersTableHeaders } = teachers;
+    console.log(this.props);
 
     if (hasErrored) {
       return <p>Извините! При загрузке списка преподавателей произошла ошибка</p>;

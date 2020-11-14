@@ -8,7 +8,7 @@ import TeachersTable from "./TeachersTable";
 class TeachersTableContainer extends Component {
   render() {
     const { URL, teachers, lessons } = this.props;
-
+    console.log(this.props);
     return <TeachersTable URL={URL} teachers={teachers} lessons={lessons} />;
   }
 }

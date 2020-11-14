@@ -1,6 +1,8 @@
 "use strict";
 
 import cheerio from "cheerio";
+export const LESSONS_HAS_ERRORED = "LESSONS_HAS_ERRORED";
+export const LESSONS_IS_LOADING = "LESSONS_IS_LOADING";
 
 export const fetchLessons = req => {
   return new Promise((resolve, reject) => {

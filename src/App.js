@@ -19,9 +19,9 @@ export default function App() {
       <h1>Выполнение аудиторных поручений</h1>
       <Provider store={store}>
         <DepartmentsContainer />
-        <DateRangeContainer />
-        {/* <RefreshTeachersTableContainer /> */}
-        {/* <TeachersTableContainer /> */}
+        <DateRangeContainer />&nbsp;
+        <RefreshTeachersTableContainer />
+        <TeachersTableContainer />
       </Provider>
     </div>
   );

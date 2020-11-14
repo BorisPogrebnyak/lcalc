@@ -36,11 +36,6 @@ export const fetchDepartments = url => {
       })
       .then(html => dispatch(fetchDepartmentsSuccess(cheerio.load(html)('#timetableform-chairid option'))))
 
-      // .then(html => {
-      //   console.log('actions: ' + html);
-      //   dispatch(fetchDepartmentsSuccess(cheerio.load(html)('#TimeTableForm_chair option')))
-      // })
-
       .catch(() => dispatch(hasErrored(true)));
   }
 };
