@@ -2,13 +2,13 @@
 
 import cheerio from "cheerio";
 
+import { createRequest, changeTeacherID } from '../URL/actions';
+import { fetchLessons } from '../lessons/actions';
+
 export const TEACHERS_HAS_ERRORED = "TEACHERS_HAS_ERRORED";
 export const TEACHERS_IS_LOADING = "TEACHERS_IS_LOADING";
 export const TEACHERS_TABLE_CREATED = "TEACHERS_TABLE_CREATED";
 // export const TEACHERS_CHANGED_LESSONS = 'TEACHERS_CHANGED_LESSONS';
-
-import { createRequest, changeTeacherID } from '../URL/actions';
-import { fetchLessons } from '../lessons/actions';
 
 const hasErrored = hasErrored => ({
   type: TEACHERS_HAS_ERRORED,
