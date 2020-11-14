@@ -2,7 +2,8 @@
 
 import React, { Component } from 'react';
 
-import $ from "jquery";
+// import $ from "jquery";
+import $ from "tablesorter";
 
 export default class TeachersTableHeader extends Component {
   // Прикрутить jQuery tablesorter.js - 3-и cсылки в index.html
