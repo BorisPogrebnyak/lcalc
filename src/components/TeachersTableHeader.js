@@ -7,7 +7,9 @@ import $ from "tablesorter";
 
 export default class TeachersTableHeader extends Component {
   // Прикрутить jQuery tablesorter.js - 3-и cсылки в index.html
+
   componentDidMount() {
+    console.log(typeof $("#contentTable").tablesorter);
     $("#contentTable").tablesorter();
   }
 

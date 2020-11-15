@@ -7,7 +7,8 @@ export default class DateRange extends Component {
     const { from, to, changeDateRangeFrom, changeDateRangeTo } = this.props;
     return (
       <span>
-        <label for='from'> за период: </label>
+        {/* <label for='from'> за период: </label> */}
+        <label htmlFor='from'> за период: </label>
         <input
           type='date'
           id='from'
@@ -15,7 +16,8 @@ export default class DateRange extends Component {
           max={to}
           onChange={event => changeDateRangeFrom(event.target.value)}
         />
-        <label for='to'>&nbsp;÷&nbsp;</label>
+        {/* <label for='to'>&nbsp;÷&nbsp;</label> */}
+        <label htmlFor='to'>&nbsp;÷&nbsp;</label>
         <input
           type='date'
           id='to'

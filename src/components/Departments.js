@@ -16,7 +16,8 @@ export default class Departments extends Component {
 
     return (
       <span>
-        <label for='department'>Кафедра </label>
+        {/* <label for='department'>Кафедра </label> */}
+        <label htmlFor='department'>Кафедра </label>
         <select
           id='department'
           onChange={event => changeDepartmentID(event.nativeEvent.path[0].value)}
