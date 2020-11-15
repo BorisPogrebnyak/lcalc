@@ -16,7 +16,6 @@ export default class Departments extends Component {
 
     return (
       <span>
-        {/* <label for='department'>Кафедра </label> */}
         <label htmlFor='department'>Кафедра </label>
         <select
           id='department'
@@ -24,8 +23,8 @@ export default class Departments extends Component {
         >
           {Array.from(departments, department =>
             department.attribs.value === defaultDepartment ?
-              <option selected value={department.attribs.value}>{department.firstChild.data}</option> :
-              <option value={department.attribs.value}>{department.firstChild.data}</option>)}
+              <option key={department.firstChild.data} selected value={department.attribs.value}>{department.firstChild.data}</option> :
+              <option key={department.firstChild.data} value={department.attribs.value}>{department.firstChild.data}</option>)}
         </select>
       </span>
     );
