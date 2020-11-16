@@ -1,8 +1,7 @@
-"use strict";
-
 import cheerio from "cheerio";
 
-import { createRequest, changeTeacherID } from '../URL/actions';
+// import { createRequest, changeTeacherID } from '../URL/actions';
+import { createRequest } from '../URL/actions';
 import { fetchLessons } from '../lessons/actions';
 
 export const TEACHERS_HAS_ERRORED = "TEACHERS_HAS_ERRORED";

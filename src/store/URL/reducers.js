@@ -1,5 +1,3 @@
-"use strict";
-
 import {
   CHANGE_DEPARTMEN_ID,
   // CHANGE_TEACHER_ID,
@@ -73,6 +71,8 @@ export const URLReducer = (state = initialURL(), action) => {
 
     case CHANGE_DATE_RANGE_TO:
       return { ...state, params: changeParam(state, 4, action.newDateRangeTo) };
+
+    default:
   }
 
   return state;

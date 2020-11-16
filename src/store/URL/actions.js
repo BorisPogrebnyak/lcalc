@@ -1,5 +1,3 @@
-'use strict';
-
 export const CHANGE_DEPARTMEN_ID = 'CHANGE_DEPARTMEN_ID';
 // export const CHANGE_TEACHER_ID = 'CHANGE_TEACHER_ID';
 export const CHANGE_DATE_RANGE_FROM = 'CHANGE_DATE_RANGE_FROM';
@@ -45,6 +43,8 @@ export const createRequest = (state, method = '') => {
           body: `${state.params.map(param => param.NAME + param.value).join('')}`.slice(1),
         },
       };
+
+    default:
   }
 
   return defaultURL;

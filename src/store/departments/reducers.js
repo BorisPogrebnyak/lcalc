@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   DEPARTMENTS_HAS_ERRORED,
   DEPARTMENTS_IS_LOADING,
@@ -26,6 +24,8 @@ export const departmentsReducer = (state = initialDepartments(), action) => {
 
     //   case DEPARTMENTS_SELECTED_ID:
     //     return {...state, selectedDepartmentID: action.selectedDepartmentID};
+
+    default:
   }
 
   return state;

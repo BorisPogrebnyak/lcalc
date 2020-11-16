@@ -1,5 +1,3 @@
-'use strict';
-
 import cheerio from 'cheerio';
 
 export const DEPARTMENTS_HAS_ERRORED = 'DEPARTMENTS_HAS_ERRORED';

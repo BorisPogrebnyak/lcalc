@@ -1,5 +1,3 @@
-"use strict";
-
 import {
   TEACHERS_HAS_ERRORED,
   TEACHERS_IS_LOADING,
@@ -27,6 +25,8 @@ export const teachersReducer = (state = initialTeachers(), action) => {
 
     // case TEACHERS_CHANGED_LESSONS:
     //   return { ...state, lessons: action.lessons };
+
+    default:
   }
 
   return state;

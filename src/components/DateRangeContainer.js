@@ -1,9 +1,7 @@
-'use strict';
-
 import React, { Component } from 'react';
-import { connect }          from 'react-redux';
+import { connect } from 'react-redux';
 
-import DateRange            from './DateRange';
+import DateRange from './DateRange';
 import { changeDateRangeFrom, changeDateRangeTo } from '../store/URL/actions';
 
 class DateRangeContainer extends Component {
@@ -16,8 +14,8 @@ class DateRangeContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  from:                 state.URL.params[3].value,
-  to:                   state.URL.params[4].value,
+  from: state.URL.params[3].value,
+  to: state.URL.params[4].value,
 });
 
 // DepartmentsContainer != DateRangeContainer ???
