@@ -16,7 +16,8 @@ export default class TeachersTable extends Component {
       return <p>Загрузка списка преподавателей …</p>;
     } else {
       return (
-        <table id='contentTable' class='tablesorter-blue'>
+        // <table id='contentTable' class='tablesorter-blue'>
+        <table id='contentTable' className='tablesorter-blue'>
           <TeachersTableHeader teachersTableHeaders={teachersTableHeaders} />
           <tbody>
             {Array.from(teachersForView, teacher => <TeachersRowContainer URL={URL} teacher={teacher} key={teacher.name} lessons={lessons} />)}

@@ -21,7 +21,7 @@ export default function App() {
         <DepartmentsContainer />
         <DateRangeContainer />&nbsp;
         <RefreshTeachersTableContainer />
-        {/* <TeachersTableContainer /> */}
+        <TeachersTableContainer />
       </Provider>
     </div>
   );
