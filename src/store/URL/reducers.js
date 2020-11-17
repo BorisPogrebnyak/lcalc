@@ -73,9 +73,8 @@ export const URLReducer = (state = initialURL(), action) => {
       return { ...state, params: changeParam(state, 4, action.newDateRangeTo) };
 
     default:
+      return state;
   }
-
-  return state;
 };
 
 // Меняет значение параметра value: c номером [index] на value

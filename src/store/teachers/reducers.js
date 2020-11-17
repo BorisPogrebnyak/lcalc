@@ -27,7 +27,6 @@ export const teachersReducer = (state = initialTeachers(), action) => {
     //   return { ...state, lessons: action.lessons };
 
     default:
+      return state;
   }
-
-  return state;
 };

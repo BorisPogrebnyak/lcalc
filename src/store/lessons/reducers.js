@@ -22,7 +22,6 @@ export const lessonsReducer = (state = initialLessons(), action) => {
     //   return { ...state, lessons: action.lessons };
 
     default:
+      return state;
   }
-
-  return state;
 };

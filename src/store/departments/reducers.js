@@ -26,7 +26,6 @@ export const departmentsReducer = (state = initialDepartments(), action) => {
     //     return {...state, selectedDepartmentID: action.selectedDepartmentID};
 
     default:
+      return state;
   }
-
-  return state;
 }

@@ -45,7 +45,6 @@ export const createRequest = (state, method = '') => {
       };
 
     default:
+      return defaultURL;
   }
-
-  return defaultURL;
 }
