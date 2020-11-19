@@ -3,16 +3,7 @@ import React, { Component } from 'react';
 import TeachersTableHeader from './TeachersTableHeader';
 import TeachersRowContainer from './TeachersRowContainer';
 
-// import $ from "jquery";
-// import { tablesorter } from "tablesorter";
-
 export default class TeachersTable extends Component {
-
-  // componentDidMount() {
-  //   console.log($("#contentTable").tablesorter());
-  //   $("#contentTable").tablesorter();
-  // }
-
   render() {
     const { URL, teachers, lessons } = this.props;
     const { hasErrored, isLoading, teachersForView, teachersTableHeaders } = teachers;
