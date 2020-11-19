@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
-// import $ from "jquery";
-import $ from "tablesorter";
+import $ from "jquery";
+import { tablesorter } from "tablesorter";
+import "../theme.blue.css";
 
 export default class TeachersTableHeader extends Component {
-  // Прикрутить jQuery tablesorter.js - 3-и cсылки в index.html
 
   componentDidMount() {
-    console.log(typeof $("#contentTable").tablesorter);
     $("#contentTable").tablesorter();
   }
 
