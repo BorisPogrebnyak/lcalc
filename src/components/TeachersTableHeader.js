@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import $ from "jquery";
-import { tablesorter } from "tablesorter";
+import tablesorter from "tablesorter";
 import "../theme.blue.css";
 
 export default class TeachersTableHeader extends Component {
