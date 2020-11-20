@@ -32,7 +32,7 @@ export const fetchDepartments = url => {
         dispatch(isLoading(false));
         return res.text();
       })
-      .then(html => dispatch(fetchDepartmentsSuccess(cheerio.load(html)('#timetableform-chairid option'))))
+      .then(html => dispatch(fetchDepartmentsSuccess(cheerio.load(html)('#timetableform-chairid option').slice(1))))
 
       .catch(() => dispatch(hasErrored(true)));
   }
