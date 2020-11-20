@@ -1,8 +1,23 @@
+// Тырил отсюда:
+// https://ru.reactjs.org/docs/forms.html
+// https://question-it.com/questions/139777/kakovy-razlichija-mezhdu-defaultvalue-i-znacheniem-v-select
+
 import React, { Component } from 'react';
 
 export default class Departments extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: props.defaultDepartment
+    }
+  }
+
+  componentDidMount() {
+    this.setState({ selected: this.props.defaultDepartment })
+  }
+
   render() {
-    const { hasErrored, isLoading, departments, changeDepartmentID, defaultDepartment } = this.props;
+    const { hasErrored, isLoading, departments, changeDepartmentID } = this.props;
 
     if (hasErrored) {
       return <p>Извините! При загрузке списка кафедр произошла ошибка</p>;
@@ -17,12 +32,19 @@ export default class Departments extends Component {
         <label htmlFor='department'>Кафедра </label>
         <select
           id='department'
-          onChange={event => changeDepartmentID(event.nativeEvent.path[0].value)}
+          value={this.state.selected}
+          onChange={event => {
+            changeDepartmentID(event.nativeEvent.path[0].value);
+            this.setState({ selected: event.target.value });
+          }}
         >
           {Array.from(departments, department =>
-            department.attribs.value === defaultDepartment ?
-              <option key={department.firstChild.data} selected value={department.attribs.value}>{department.firstChild.data}</option> :
-              <option key={department.firstChild.data} value={department.attribs.value}>{department.firstChild.data}</option>)}
+            <option
+              key={department.firstChild.data}
+              value={department.attribs.value}
+            >
+              {department.firstChild.data}
+            </option>)}
         </select>
       </span>
     );
