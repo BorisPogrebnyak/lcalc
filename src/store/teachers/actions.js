@@ -30,14 +30,16 @@ const teachersTableCreated = teachersForView => ({
 //   lessons
 // });
 
-// export const fetchTeachers = req => {
-export const fetchTeachers = URL => {
+// export const fetchTeachers = URL => {
+export const fetchTeachers = req => {
   return dispatch => {
     dispatch(isLoading(true));
 
     // fetch(req)
-    fetch(createRequest(URL, 'GET'))
+    // fetch(createRequest(URL, 'GET'))
+    fetch(req.url, req.init)
       .then(res => {
+        console.log(res);
         if (!res.ok) {
           throw new Error(res.statusText);
         }
@@ -54,7 +56,7 @@ export const fetchTeachers = URL => {
         //   coeffRate: 1,                   // Коэф. ставки
         // })
         // ).slice(1);                       // Без 1-й строки-пустышки
-        console.log(cheerio.load(html));
+        console.log(html);
         const teachersForView = Array.from(cheerio.load(html)("#timetableform-teacherid option"), teacher => ({
           ID: teacher.attribs.value,      // Код преподавателя
           name: teacher.children[0].data, // ФИО, должность

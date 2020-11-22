@@ -11,11 +11,13 @@ const initialURL = (currentDate = new Date()) => {
     // base: "https://kis.kname.edu.ua",
     // offset: "/timeTable/teacher",
     base: "https://erp.kname.edu.ua",
-    offset: "/time-table/teacher",
+    offset: "/time-table/teacher?type=0",
+    // offset: "/time-table/teacher",
     params: [
       {
         // [0] - Филиал
-        NAME: "?TimeTableForm[filial]=",
+        // NAME: "?TimeTableForm[filial]=",
+        NAME: "&TimeTableForm[filial]=",
         value: "0",
       },
       {
@@ -34,16 +36,16 @@ const initialURL = (currentDate = new Date()) => {
         NAME: "&TimeTableForm[date1]=",
         value:
           currentDate.toLocaleString() >= "01.09." + currentDate.getFullYear()
-            ? currentDate.getFullYear() + "-01-01"
-            : currentDate.getFullYear() + "-09-01",
+            ? currentDate.getFullYear() + "-09-01"
+            : currentDate.getFullYear() + "-01-01",
       },
       {
         // [4] - Дата Окончания
         NAME: "&TimeTableForm[date2]=",
         value:
           currentDate.toLocaleString() >= "01.09." + currentDate.getFullYear()
-            ? currentDate.getFullYear() + "-08-31"
-            : currentDate.getFullYear() + "-12-31",
+            ? currentDate.getFullYear() + "-12-31"
+            : currentDate.getFullYear() + "-08-31",
       },
       {
         // [5]

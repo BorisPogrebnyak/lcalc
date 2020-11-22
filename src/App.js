@@ -3,8 +3,9 @@ import { Provider } from "react-redux";
 
 import "./styles.css";
 
-import { CurrentMoment } from "./components/CurrentMoment";
 import { configureStore } from "./store/configure_store";
+import { CurrentMoment } from "./components/CurrentMoment";
+// import GetCsrfTokenContainer from "./components/GetCsrfTokenContainer";
 import DepartmentsContainer from "./components/DepartmentsContainer";
 import DateRangeContainer from "./components/DateRangeContainer";
 import RefreshTeachersTableContainer from "./components/RefreshTeachersTableContainer";
@@ -18,6 +19,7 @@ export default function App() {
       <CurrentMoment />
       <h1>Выполнение аудиторных поручений</h1>
       <Provider store={store}>
+        {/* <GetCsrfTokenContainer /> */}
         <DepartmentsContainer />
         <DateRangeContainer />&nbsp;
         <RefreshTeachersTableContainer />
