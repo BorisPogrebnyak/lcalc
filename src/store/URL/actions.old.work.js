@@ -1,13 +1,7 @@
-export const CHANGE_CSRF_TOKEN = 'CHANGE_CSRF_TOKEN';
 export const CHANGE_DEPARTMEN_ID = 'CHANGE_DEPARTMEN_ID';
 // export const CHANGE_TEACHER_ID = 'CHANGE_TEACHER_ID';
 export const CHANGE_DATE_RANGE_FROM = 'CHANGE_DATE_RANGE_FROM';
 export const CHANGE_DATE_RANGE_TO = 'CHANGE_DATE_RANGE_TO';
-
-export const changeCsrfToken = csrfToken => ({
-  type: CHANGE_CSRF_TOKEN,
-  csrfToken
-});
 
 export const changeDepartmentID = ID => ({
   type: CHANGE_DEPARTMEN_ID,
@@ -32,7 +26,7 @@ export const changeDateRangeTo = newDateRangeTo => ({
 export const createRequest = (state, method = '') => {
   const { proxy, base, offset } = state;
   const defaultURL = `${proxy}${base}${offset}`;
-  console.log(state);
+
   switch (method.toUpperCase()) {
     case 'GET':
       return `${defaultURL}${state.params.map(param => param.NAME + param.value).join('')}`;
@@ -43,12 +37,8 @@ export const createRequest = (state, method = '') => {
         init: {
           method: 'POST',
           headers: {
-            // Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-            Accept: '*/*',
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            'X-CSRF-Token': state.params[0].value,
-            'X-Requested-With': 'XMLHttpRequest',
+            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Content-Type': 'application/x-www-form-urlencoded',
           },
           body: `${state.params.map(param => param.NAME + param.value).join('')}`.slice(1),
         },

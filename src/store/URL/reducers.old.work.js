@@ -1,5 +1,4 @@
 import {
-  CHANGE_CSRF_TOKEN,
   CHANGE_DEPARTMEN_ID,
   // CHANGE_TEACHER_ID,
   CHANGE_DATE_RANGE_FROM,
@@ -16,29 +15,24 @@ const initialURL = (currentDate = new Date()) => {
     // offset: "/time-table/teacher",
     params: [
       {
-        // [0] - csrfToken
-        NAME: "?_csrf-frontend=",
-        value: "",
-      },
-      {
-        // [1] - Филиал
+        // [0] - Филиал
         // NAME: "?TimeTableForm[filial]=",
-        NAME: "&TimeTableForm[structureId]=",
+        NAME: "&TimeTableForm[filial]=",
         value: "0",
       },
       {
-        // [2] - Кафедра
-        NAME: "&TimeTableForm[chairId]=",
+        // [1] - Кафедра
+        NAME: "&TimeTableForm[chair]=",
         value: "169", // АтКИТ
         // value: "78", // КН
       },
       {
-        // [3] - Преподаватель
+        // [2] - Преподаватель
         NAME: "&TimeTableForm[teacher]=",
         value: "",
       },
       {
-        // [4] - Дата начала
+        // [3] - Дата начала
         NAME: "&TimeTableForm[date1]=",
         value:
           currentDate.toLocaleString() >= "01.09." + currentDate.getFullYear()
@@ -46,7 +40,7 @@ const initialURL = (currentDate = new Date()) => {
             : currentDate.getFullYear() + "-01-01",
       },
       {
-        // [5] - Дата Окончания
+        // [4] - Дата Окончания
         NAME: "&TimeTableForm[date2]=",
         value:
           currentDate.toLocaleString() >= "01.09." + currentDate.getFullYear()
@@ -54,7 +48,7 @@ const initialURL = (currentDate = new Date()) => {
             : currentDate.getFullYear() + "-08-31",
       },
       {
-        // [6]
+        // [5]
         NAME: "&TimeTableForm[r11]=",
         value: "5",
       }
@@ -65,23 +59,20 @@ const initialURL = (currentDate = new Date()) => {
 export const URLReducer = (state = initialURL(), action) => {
   console.log(action);
   switch (action.type) {
-    case CHANGE_CSRF_TOKEN:
-      return { ...state, params: changeParam(state, 0, action.csrfToken) };
-
     case CHANGE_DEPARTMEN_ID:
-      return { ...state, params: changeParam(state, 2, action.ID) };
+      return { ...state, params: changeParam(state, 1, action.ID) };
 
     // case CHANGE_TEACHER_ID:
-    //   return { ...state, params: changeParam(state, 3, action.ID) };
+    //   return { ...state, params: changeParam(state, 2, action.ID) };
 
     case CHANGE_DATE_RANGE_FROM:
       return {
         ...state,
-        params: changeParam(state, 4, action.newDateRangeFrom)
+        params: changeParam(state, 3, action.newDateRangeFrom)
       };
 
     case CHANGE_DATE_RANGE_TO:
-      return { ...state, params: changeParam(state, 5, action.newDateRangeTo) };
+      return { ...state, params: changeParam(state, 4, action.newDateRangeTo) };
 
     default:
       return state;

@@ -12,10 +12,10 @@ class DepartmentsContainer extends Component {
   }
 
   render() {
-    const { hasErrored, isLoading, departments, changeDepartmentID, URL: { params: [, { value: defaultDepartment }] } } = this.props;
-
+    const { hasErrored, isLoading, departments, changeDepartmentID, URL: { params: [, , { value: defaultDepartment }] } } = this.props;
+    console.log(defaultDepartment);
     return (
-      <Departments hasErrored={hasErrored} isLoading={isLoading} departments={departments} changeDepartmentID={changeDepartmentID} defaultDepartment={defaultDepartment} />
+      <Departments hasErrored={hasErrored} isLoading={isLoading} departments={departments} defaultDepartment={defaultDepartment} changeDepartmentID={changeDepartmentID} />
     );
   }
 }

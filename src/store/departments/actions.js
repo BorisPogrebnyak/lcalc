@@ -1,6 +1,7 @@
 import cheerio from 'cheerio';
 
-import { setCsrfToken } from '../CSRF/actions';
+import { changeCsrfToken } from '../URL/actions';
+
 
 export const DEPARTMENTS_HAS_ERRORED = 'DEPARTMENTS_HAS_ERRORED';
 export const DEPARTMENTS_IS_LOADING = 'DEPARTMENTS_IS_LOADING';
@@ -37,8 +38,7 @@ export const fetchDepartments = url => {
         return res.text();
       })
       .then(html => {
-        // console.log(cheerio.load(html)('meta[name="csrf-token"]').attr('content'));
-        dispatch(setCsrfToken(cheerio.load(html)('meta[name="csrf-token"]').attr('content')))
+        dispatch(changeCsrfToken(cheerio.load(html)('meta[name="csrf-token"]').attr('content')));
 
         return html;
       })

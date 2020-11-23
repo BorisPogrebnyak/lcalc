@@ -14,8 +14,8 @@ class DateRangeContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  from: state.URL.params[3].value,
-  to: state.URL.params[4].value,
+  from: state.URL.params[4].value,
+  to: state.URL.params[5].value,
 });
 
 // DepartmentsContainer != DateRangeContainer ???

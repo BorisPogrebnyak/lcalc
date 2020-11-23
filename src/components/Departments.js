@@ -12,9 +12,9 @@ export default class Departments extends Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({ selected: this.props.defaultDepartment })
-  }
+  // componentDidMount() {
+  //   this.setState({ selected: this.props.defaultDepartment })
+  // }
 
   render() {
     const { hasErrored, isLoading, departments, changeDepartmentID } = this.props;
