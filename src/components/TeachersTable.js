@@ -5,10 +5,7 @@ import Spin from './Spin';
 import TeachersTableHeader from './TeachersTableHeader';
 import TeacherRow from './TeacherRow';
 
-export default function TeachersTable(props) {
-  const { teachers, lessons } = props;
-  const { hasErrored, isLoading, teachersList, teachersTableHeaders } = teachers;
-
+export default function TeachersTable({ teachers: { hasErrored, isLoading, teachersList, teachersTableHeaders }, lessons }) {
   return (
     <table id='contentTable' className='tablesorter-blue'>
       <TeachersTableHeader teachersTableHeaders={teachersTableHeaders} />

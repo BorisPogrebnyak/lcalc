@@ -6,8 +6,7 @@ import React from 'react';
 
 import Spin from './Spin';
 
-export default function Departments(props) {
-  const { hasErrored, isLoading, departments, defaultDepartmentId, changeDepartmentId } = props;
+export default function Departments({ hasErrored, isLoading, departments, defaultDepartmentId, changeDepartmentId }) {
 
   return (
     <span>

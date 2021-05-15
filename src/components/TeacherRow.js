@@ -2,9 +2,7 @@ import React from "react";
 
 import Spin from './Spin';
 
-export default function TeacherRow(props) {
-  const { teacher, lessons } = props;
-  const { hasErrored, isLoading } = lessons;
+export default function TeacherRow({ teacher, lessons: { hasErrored, isLoading } }) {
   let row = []; // Cтрока таблицы - параметры препода
 
   if (hasErrored) {
