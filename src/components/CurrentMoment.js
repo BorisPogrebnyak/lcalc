@@ -1,29 +1,22 @@
-// Спер и упростил отсюда:
+// Спер, упростил и переделал
+// под функциональный с хуками отсюда:
 // Как создать динамические часы на React?
 // https://blog.myrusakov.ru/reactjs-comp.html
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dayjs from "dayjs";
 
-export default class CurrentMoment extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { currentMoment: dayjs() };
-  }
+export default function CurrentMoment() {
+  const [currentMoment, setCurrentMoment] = useState(dayjs());
 
-  componentDidMount() {
-    this.tick();
-  }
+  useEffect(() => {
+    setInterval(() => setCurrentMoment(dayjs()), 1000);
+  }, []);
 
-  tick = () =>
-    setInterval(() => this.setState({ currentMoment: dayjs() }), 1000);
-
-  render() {
-    return (
-      <div className="CurrentMoment">
-        Сегодня:&nbsp;
-        {this.state.currentMoment.format("DD.MM.YYYY HH:mm:ss")}
-      </div>
-    );
-  }
+  return (
+    <div className="CurrentMoment">
+      Сегодня:&nbsp;
+      {currentMoment.format("DD.MM.YYYY HH:mm:ss")}
+    </div>
+  );
 }
