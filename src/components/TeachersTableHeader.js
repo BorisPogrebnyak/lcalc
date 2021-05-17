@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
 import $ from 'jquery';
 import 'tablesorter';
 
-export default class TeachersTableHeader extends Component {
+export default function TeachersTableHeader({ teachersTableHeaders }) {
 
-  componentDidMount() {
+  // Обновление tablesorter в store/teachers/actions.js
+  useEffect(() => {
     $("#contentTable").tablesorter();
-    // Обновление tablesorter в store/teachers/actions.js
-  }
+  }, []);
 
-  render() {
-    return (
-      <thead>
-        <tr>{this.props.teachersTableHeaders.map(title => <th key={title}>{title}</th>)}</tr>
-      </thead>
-    );
-  }
+  return (
+    <thead>
+      <tr>{teachersTableHeaders.map(title => <th key={title}>{title}</th>)}</tr>
+    </thead>
+  );
 }
