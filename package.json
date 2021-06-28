@@ -8,7 +8,8 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3",
+    "antd": "^4.16.5",
+    "cheerio": "^1.0.0-rc.10",
     "dayjs": "^1.9.6",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
