@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function RefreshTeachersTable({ URL, fetchTeachers, lessons }) {
+export default function RefreshTeachersTableOld({ URL, fetchTeachers, lessons }) {
 
   return (
     <input

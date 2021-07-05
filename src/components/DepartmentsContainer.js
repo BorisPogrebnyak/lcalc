@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Departments from './Departments';
+import DepartmentsOld from './DepartmentsOld';
 import fetchDepartments from '../store/departments/actions';
 import { changeDepartmentId } from '../store/URL/actions';
 
@@ -12,8 +12,9 @@ class DepartmentsContainer extends Component {
 
   render() {
     const { hasErrored, isLoading, departments, changeDepartmentId, URL: { params: [, , { value: defaultDepartmentId }] } } = this.props;
+
     return (
-      <Departments hasErrored={hasErrored} isLoading={isLoading} departments={departments} defaultDepartmentId={defaultDepartmentId} changeDepartmentId={changeDepartmentId} />
+      <DepartmentsOld hasErrored={hasErrored} isLoading={isLoading} departments={departments} defaultDepartmentId={defaultDepartmentId} changeDepartmentId={changeDepartmentId} />
     );
   }
 }

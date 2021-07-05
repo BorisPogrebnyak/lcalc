@@ -9,10 +9,14 @@ import '../node_modules/spin.js/spin.css';
 
 import { configureStore } from './store/configure_store';
 import CurrentMoment from './components/CurrentMoment';
-import DepartmentsContainer from './components/DepartmentsContainer';
+// import DepartmentsContainer from './components/DepartmentsContainer';
+import Departments from './components/Departments';
 import DateRangeContainer from './components/DateRangeContainer';
+import DateRange from './components/DateRange';
 import RefreshTeachersTableContainer from './components/RefreshTeachersTableContainer';
-import TeachersTableContainer from './components/TeachersTableContainer';
+import RefreshTeachersTable from './components/RefreshTeachersTable';
+// import TeachersTableContainer from './components/TeachersTableContainer';
+import TeachersTable from './components/TeachersTable';
 
 const { Header, Content, Footer } = Layout;
 const store = configureStore();
@@ -27,13 +31,17 @@ export default function App() {
         <Content>
           <h1>Выполнение аудиторных поручений</h1>
           <Provider store={store}>
-            <DepartmentsContainer />
-            <DateRangeContainer />&nbsp;
-            <RefreshTeachersTableContainer />
-            <TeachersTableContainer />
+            {/* <DepartmentsContainer /> */}
+            <Departments />
+            {/* <DateRangeContainer />&nbsp; */}
+            <DateRange />&nbsp;
+            {/* <RefreshTeachersTableContainer /> */}
+            <RefreshTeachersTable />
+            {/* <TeachersTableContainer /> */}
+            <TeachersTable />
           </Provider>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Roga&Kopyta ©2021 Created by Ostap Bender</Footer>
+        <Footer style={styles.layoutFooterStyle}>Roga&Kopyta ©2021 Created by Ostap Bender</Footer>
       </Layout>
     </div>
   );
@@ -46,5 +54,9 @@ const styles = {
 
   layoutHeaderStyle: {
     background: '#f0f2f5',
+  },
+
+  layoutFooterStyle: {
+    textAlign: 'center'
   },
 };

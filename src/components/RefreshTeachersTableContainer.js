@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import RefreshTeachersTable from './RefreshTeachersTable';
+import RefreshTeachersTableOld from './RefreshTeachersTableOld';
 import fetchTeachers from '../store/teachers/actions';
 
 class RefreshTeachersTableContainer extends Component {
@@ -9,7 +9,7 @@ class RefreshTeachersTableContainer extends Component {
     const { URL, fetchTeachers, lessons } = this.props;
 
     return (
-      <RefreshTeachersTable URL={URL} fetchTeachers={fetchTeachers} lessons={lessons} />
+      <RefreshTeachersTableOld URL={URL} fetchTeachers={fetchTeachers} lessons={lessons} />
     );
   }
 }

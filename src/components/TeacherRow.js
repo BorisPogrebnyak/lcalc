@@ -19,7 +19,7 @@ export default function TeacherRow({ teacher, lessons: { hasErrored, isLoading }
   // Возврат строки таблицы - одного препода
   return (
     <tr>
-      <Spin isLoading={isLoading} />
+      {/* <Spin isLoading={isLoading} /> */}
       {row}
     </tr>
   );

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import DateRange from './DateRange';
+import DateRangeOld from './DateRangeOld';
 import { changeDateRangeStart, changeDateRangeEnd } from '../store/URL/actions';
 
 class DateRangeContainer extends Component {
   render() {
     const { start, end, changeDateRangeStart, changeDateRangeEnd } = this.props;
     return (
-      <DateRange start={start} end={end} changeDateRangeStart={changeDateRangeStart} changeDateRangeEnd={changeDateRangeEnd} />
+      <DateRangeOld start={start} end={end} changeDateRangeStart={changeDateRangeStart} changeDateRangeEnd={changeDateRangeEnd} />
     );
   }
 }

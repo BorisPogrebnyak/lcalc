@@ -1,0 +1,15 @@
+.ant-table-small .ant-table-thead > tr > th {
+  background-color: #99bfe6;
+}
+
+.ant-table-column-title {
+  font-weight: bold;
+}
+
+.ant-table-column-sorter-inner {
+  color: #000;
+}
+
+.ant-table-wrapper {
+  margin-top: 10px;
+}

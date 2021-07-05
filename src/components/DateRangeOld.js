@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function DateRange({ start, end, changeDateRangeStart, changeDateRangeEnd }) {
+export default function DateRangeOld({ start, end, changeDateRangeStart, changeDateRangeEnd }) {
   return (
     <span>
       <label htmlFor='start'> за&nbsp;период:&nbsp;</label>

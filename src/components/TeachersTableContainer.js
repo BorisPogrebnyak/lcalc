@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import TeachersTable from "./TeachersTable";
+import TeachersTableOld from "./TeachersTableOld";
 
 class TeachersTableContainer extends Component {
   render() {
     const { teachers, lessons } = this.props;
-    return <TeachersTable teachers={teachers} lessons={lessons} />;
+    return <TeachersTableOld teachers={teachers} lessons={lessons} />;
   }
 }
 

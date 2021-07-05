@@ -6,7 +6,7 @@ import React from 'react';
 
 import Spin from './Spin';
 
-export default function Departments({ hasErrored, isLoading, departments, defaultDepartmentId, changeDepartmentId }) {
+export default function DepartmentsOld({ hasErrored, isLoading, departments, defaultDepartmentId, changeDepartmentId }) {
 
   return (
     <span>
