@@ -8,6 +8,7 @@ import '../node_modules/tablesorter/dist/css/theme.blue.css';
 import '../node_modules/spin.js/spin.css';
 
 import { configureStore } from './store/configure_store';
+import puppeteerClose from './services/puppeteerClose';
 import CurrentMoment from './components/CurrentMoment';
 // import DepartmentsContainer from './components/DepartmentsContainer';
 import Departments from './components/Departments';
@@ -20,6 +21,10 @@ import TeachersTable from './components/TeachersTable';
 
 const { Header, Content, Footer } = Layout;
 const store = configureStore();
+
+// Передать url как параметр handler????????
+// window.onunload = () => puppeteerClose();
+window.onunload = puppeteerClose;
 
 export default function App() {
   return (

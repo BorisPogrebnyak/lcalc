@@ -21,7 +21,7 @@ export default function fetchDepartments() {
   return dispatch => {
     dispatch(isLoading(true));
 
-    fetch('http://localhost:3001/departments')
+    fetch('http://localhost:3001/departments?targetUrl=https://erp.kname.edu.ua/time-table/teacher?type=0')
       .then(res => {
         if (!res.ok) {
           throw new Error(res.statusText);
