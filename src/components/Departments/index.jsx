@@ -4,7 +4,7 @@ import { Select } from 'antd';
 import Spin from '../Spin';
 
 import fetchDepartments from '../../store/departments/actions';
-import { changeDepartmentId } from '../../store/URL/actions';
+import { changeDepartmentId } from '../../store/url/actions';
 
 // import './styles.css';
 
@@ -12,11 +12,11 @@ const { Option } = Select;
 
 class Departments extends Component {
   componentDidMount() {
-    this.props.fetchDepartments();
+    this.props.fetchDepartments(this.props.url);
   }
 
   render() {
-    const { hasErrored, isLoading, departments, changeDepartmentId, URL: { params: [, , { value: defaultDepartmentId }] } } = this.props;
+    const { hasErrored, isLoading, departments, changeDepartmentId, url: { selectedDepartmentId: defaultDepartmentId } } = this.props;
 
     return (
       <>
@@ -56,7 +56,7 @@ class Departments extends Component {
 }
 
 const mapStateToProps = state => ({
-  URL: state.URL,
+  url: state.url,
   hasErrored: state.departments.hasErrored,
   isLoading: state.departments.isLoading,
   departments: state.departments.departments,

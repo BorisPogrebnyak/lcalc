@@ -35,7 +35,7 @@ router.get('/',
       res.end(JSON.stringify(teachersList));
     } catch (err) {
       console.error(`Ошибка при обработке запроса / => : ${err}`);
-      next(createError(404));
+      next(createError());
     }
   });
 

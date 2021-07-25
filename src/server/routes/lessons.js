@@ -19,7 +19,7 @@ router.get('/',
       res.end(`${cheerio.load(await page.content())('#timeTable td [data-content!=""]').length}`); // `` - numberToString
     } catch (err) {
       console.error(`Ошибка при обработке запроса / => : ${err}`);
-      next(createError(404));
+      next(createError());
     }
   });
 

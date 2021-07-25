@@ -1,3 +1,3 @@
-export default function puppeteerClose() {
-  fetch(`http://localhost:3001/close`);
+export default function puppeteerClose(url) {
+  fetch(url);
 }

@@ -9,7 +9,7 @@ import fetchTeachers from '../../store/teachers/actions';
 
 class RefreshTeachersTable extends Component {
   render() {
-    const { URL, fetchTeachers, lessons, departments, teachers } = this.props;
+    const { url, fetchTeachers, lessons, departments, teachers } = this.props;
     const isLoading = lessons.isLoading ||
       departments.isLoading || teachers.isLoading;
 
@@ -18,7 +18,7 @@ class RefreshTeachersTable extends Component {
         type='primary'
         size='small'
         loading={isLoading}
-        onClick={() => fetchTeachers(URL, lessons)}>
+        onClick={() => fetchTeachers(url, lessons)}>
         Обновить
       </Button>
     );
@@ -26,7 +26,7 @@ class RefreshTeachersTable extends Component {
 }
 
 const mapStateToProps = state => ({
-  URL: state.URL,
+  url: state.url,
   lessons: state.lessons,
   departments: state.departments,
   teachers: state.teachers,

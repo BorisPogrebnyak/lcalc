@@ -4,14 +4,13 @@ import {
   DEPARTMENTS_FETCH_SUCCESS,
 } from './actions';
 
-const initialDepartments = () => ({
+const initialDepartments = {
   hasErrored: false,
   isLoading: false,
   departments: [],
-})
+};
 
-// export const departmentsReducer = (state = initialDepartments(), action) => {
-export default function departmentsReducer(state = initialDepartments(), action) {
+export default function departmentsReducer(state = initialDepartments, action) {
   switch (action.type) {
     case DEPARTMENTS_HAS_ERRORED:
       return { ...state, hasErrored: action.hasErrored };

@@ -17,11 +17,10 @@ const fetchDepartmentsSuccess = departments => ({
   departments
 });
 
-export default function fetchDepartments() {
+export default function fetchDepartments(url) {
   return dispatch => {
     dispatch(isLoading(true));
-
-    fetch('http://localhost:3001/departments?targetUrl=https://erp.kname.edu.ua/time-table/teacher?type=0')
+    fetch(`${url.hostServer}/departments?targetUrl=${url.targetUrl}`)
       .then(res => {
         if (!res.ok) {
           throw new Error(res.statusText);

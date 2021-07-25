@@ -21,12 +21,12 @@ const fetchTeachersSuccess = teachersList => ({
   teachersList
 });
 
-export default function fetchTeachers(URL, lessons) {
+export default function fetchTeachers(url, lessons) {
   return async dispatch => {
     try {
       dispatch(isLoading(true));
 
-      const res = await fetch(`http://localhost:3001/teachers?selectedDepartmentId=${URL.params[2].value}&dateStart=${URL.params[5].value}&dateEnd=${URL.params[6].value}`);
+      const res = await fetch(`${url.hostServer}/teachers?selectedDepartmentId=${url.selectedDepartmentId}&dateStart=${url.dateStart}&dateEnd=${url.dateEnd}`);
 
       if (!res.ok) {
         throw new Error(res.statusText);
@@ -37,7 +37,7 @@ export default function fetchTeachers(URL, lessons) {
       (async teachersList => {
         await dispatch(fetchTeachersSuccess(teachersList));
         for (const teacher of teachersList) {
-          teacher.lessons = await fetchLessons(URL, teacher.id, lessons, dispatch);
+          teacher.lessons = await fetchLessons(url, teacher.id, lessons, dispatch);
           await dispatch(fetchTeachersSuccess(teachersList));
         } // Подключение tablesorter в TeachersTableHeader.js
         $("#contentTable").trigger("update");

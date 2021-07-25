@@ -11,7 +11,7 @@ router.get('/',
       res.sendFile(path.join(__dirname, '../../../public/index.html'));
     } catch (err) {
       console.error(`Ошибка при обработке запроса / => : ${err}`);
-      next(createError(404));
+      next(createError());
     }
   });
 

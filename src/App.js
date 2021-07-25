@@ -10,21 +10,16 @@ import '../node_modules/spin.js/spin.css';
 import { configureStore } from './store/configure_store';
 import puppeteerClose from './services/puppeteerClose';
 import CurrentMoment from './components/CurrentMoment';
-// import DepartmentsContainer from './components/DepartmentsContainer';
 import Departments from './components/Departments';
-import DateRangeContainer from './components/DateRangeContainer';
 import DateRange from './components/DateRange';
-import RefreshTeachersTableContainer from './components/RefreshTeachersTableContainer';
 import RefreshTeachersTable from './components/RefreshTeachersTable';
-// import TeachersTableContainer from './components/TeachersTableContainer';
 import TeachersTable from './components/TeachersTable';
 
 const { Header, Content, Footer } = Layout;
 const store = configureStore();
 
-// Передать url как параметр handler????????
-// window.onunload = () => puppeteerClose();
-window.onunload = puppeteerClose;
+// Обернуто в замыкание для передачи параметра
+window.onunload = () => puppeteerClose('http://localhost:3001/close');
 
 export default function App() {
   return (
@@ -36,13 +31,9 @@ export default function App() {
         <Content>
           <h1>Выполнение аудиторных поручений</h1>
           <Provider store={store}>
-            {/* <DepartmentsContainer /> */}
             <Departments />
-            {/* <DateRangeContainer />&nbsp; */}
             <DateRange />&nbsp;
-            {/* <RefreshTeachersTableContainer /> */}
             <RefreshTeachersTable />
-            {/* <TeachersTableContainer /> */}
             <TeachersTable />
           </Provider>
         </Content>

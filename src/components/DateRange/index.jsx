@@ -10,7 +10,7 @@ import 'dayjs/locale/ru';
 import 'antd/dist/antd.css';
 // import './styles.css';
 
-import { changeDateRangeStart, changeDateRangeEnd } from '../../store/URL/actions';
+import { changeDateRangeStart, changeDateRangeEnd } from '../../store/url/actions';
 
 const { RangePicker } = DatePicker;
 
@@ -42,8 +42,8 @@ class DateRange extends Component {
 }
 
 const mapStateToProps = state => ({
-  start: state.URL.params[5].value,
-  end: state.URL.params[6].value,
+  start: state.url.dateStart,
+  end: state.url.dateEnd,
 });
 
 const mapDispatchToProps = {
