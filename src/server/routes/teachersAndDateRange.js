@@ -15,8 +15,7 @@ router.get('/',
       await page.waitForSelector('.card-body > #filter-form #timetableform-teacherid > option');
 
       // Выбрать любого преподавателя и подождать ...
-      await page.select('.card-body > #filter-form #timetableform-teacherid', cheerio.load(await page.content())
-        (`#timetableform-teacherid option`)[1].attribs.value);
+      await page.select('.card-body > #filter-form #timetableform-teacherid', cheerio.load(await page.content())(`#timetableform-teacherid option`)[1].attribs.value);
       await page.waitForSelector('.card-body > #filter-form #timetableform-teacherid');
 
       await page.$eval('input[name="TimeTableForm[dateStart]"]', (el, dateStart) => el.value = dateStart, dayjs(req.query.dateStart).format('DD.MM.YYYY'));

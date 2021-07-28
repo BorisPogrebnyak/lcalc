@@ -2,6 +2,7 @@
 async function getPage(browser, url) {
   try {
     const page = await browser.newPage();
+    navigationPromise = page.waitForNavigation();
     await page.goto(url);
     return page;
   } catch (err) {

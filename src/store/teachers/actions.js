@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 import fetchLessons from '../lessons/actions';
 
 export const TEACHERS_HAS_ERRORED = "TEACHERS_HAS_ERRORED";
@@ -36,11 +34,11 @@ export default function fetchTeachers(url, lessons) {
 
       (async teachersList => {
         await dispatch(fetchTeachersSuccess(teachersList));
+        let teacherNumber = 0;
         for (const teacher of teachersList) {
-          teacher.lessons = await fetchLessons(url, teacher.id, lessons, dispatch);
+          teacher.lessons = await fetchLessons(url, teacher.id, ++teacherNumber, dispatch);
           await dispatch(fetchTeachersSuccess(teachersList));
-        } // Подключение tablesorter в TeachersTableHeader.js
-        $("#contentTable").trigger("update");
+        }
       })(await res.json());
 
     } catch (err) {
