@@ -5,7 +5,7 @@ import { Button } from 'antd';
 import 'antd/dist/antd.css';
 // import './styles.css';
 
-import fetchTeachers from '../../store/teachers/actions';
+import { fetchTeachers } from '../../store/teachers/actions';
 
 class RefreshTeachersTable extends Component {
   render() {
@@ -18,7 +18,7 @@ class RefreshTeachersTable extends Component {
         type='primary'
         size='small'
         loading={isLoading}
-        onClick={() => fetchTeachers(url, lessons)}>
+        onClick={() => fetchTeachers(url)}>
         Обновить
       </Button>
     );

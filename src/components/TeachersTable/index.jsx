@@ -1,58 +1,81 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { Table } from 'antd';
+import { Table, InputNumber } from 'antd';
 
 import Spin from '../Spin';
+import { onChangeCoeffRate } from '../../store/teachers/actions';
 
 import './styles.css';
 
-class TeachersTable extends Component {
-  render() {
-    const columns = [
-      {
-        title: 'Преподаватель',
-        dataIndex: 'name',
-        key: 'name',
-        sorter: (a, b) => a.name > b.name,
-      },
-      {
-        title: 'Кст',
-        dataIndex: 'coeffRate',
-        key: 'coeffRate',
-        sorter: (a, b) => a.coeffRate - b.coeffRate,
-      },
-      {
-        title: 'Пар',
-        dataIndex: 'lessons',
-        key: 'lessons',
-        sorter: (a, b) => a.lessons - b.lessons,
-      },
-    ];
+function TeachersTable({ teachers, lessons, onChangeCoeffRate }) {
+  let coeffRate;
+  const configColumns = [
+    {
+      title: 'Преподаватель',
+      dataIndex: 'name',
+      key: 'name',
+      sorter: (a, b) => a.name > b.name,
+    },
+    {
+      title: 'Пар',
+      dataIndex: 'lessons',
+      key: 'lessons',
+      sorter: (a, b) => a.lessons - b.lessons,
+    },
+    {
+      title: 'Кст',
+      dataIndex: 'coeffRate',
+      key: 'coeffRate',
+      sorter: (a, b) => a.coeffRate - b.coeffRate,
+      render: value => (
+        <InputNumber
+          size='small'
+          bordered={false}
+          min={0.25}
+          max={1.5}
+          step={0.25}
+          defaultValue={value}
+          onChange={value => coeffRate = value}
+        />
+      ),
+    },
+    {
+      title: 'Пар/1ст',
+      dataIndex: 'lessonsPerRate',
+      key: 'lessonsPerRate',
+      sorter: (a, b) => a.lessonsPerRate - b.lessonsPerRate,
+    },
+  ];
 
-    return (<>
-      <Spin isLoading={this.props.lessons.isLoading ||
-        this.props.teachers.isLoading} />
-      <Table
-        columns={columns}
-        dataSource={this.props.teachers.isLoading ?
-          [{
-            name: 'Загрузка списка преподавателей …',
-            key: 'isLoadingTeachers'
-          }] :
-          this.props.teachers.hasErrored ?
-            [{
-              name: 'Извините! При загрузке списка преподавателей произошла ошибка.',
-              key: 'hasErroredTeachers'
-            }] :
-            this.props.teachers.teachersList.map(
-              item => ({ ...item, key: item.id }))
+  const dataSource = teachers.isLoading ?
+    [{
+      name: 'Загрузка списка преподавателей …',
+      key: 'isLoadingTeachers'
+    }] :
+    teachers.hasErrored ?
+      [{
+        name: 'Извините! При загрузке списка преподавателей произошла ошибка.',
+        key: 'hasErroredTeachers'
+      }] :
+      teachers.teachersList.map(
+        teacher => ({ ...teacher, key: teacher.id }));
+
+  return (<>
+    <Spin isLoading={lessons.isLoading ||
+      teachers.isLoading} />
+    <Table
+      columns={configColumns}
+      dataSource={dataSource}
+      size='small'
+      bordered
+      pagination={{ pageSize: 8, }}
+      onRow={(record, rowIndex) => {
+        return {
+          onClick: () => onChangeCoeffRate(coeffRate, rowIndex),
         }
-        size='small'
-        bordered
-        pagination={{ pageSize: 8, }}
-      />
-    </>);
-  }
+      }}
+    />
+  </>);
 }
 
 const mapStateToProps = state => ({
@@ -60,4 +83,8 @@ const mapStateToProps = state => ({
   lessons: state.lessons,
 });
 
-export default connect(mapStateToProps)(TeachersTable);
+const mapDispatchToProps = {
+  onChangeCoeffRate,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeachersTable);

@@ -25,8 +25,9 @@ router.get('/',
         ("#timetableform-teacherid option"), teacher => ({
           id: teacher.attribs.value,      // Код преподавателя
           name: teacher.children[0].data, // ФИО, должность
-          coeffRate: 1,                   // Коэф. ставки
           lessons: null,                  // Кол-во пар
+          coeffRate: 1,                   // Коэф. ставки
+          lessonsPerRate: null,           // Пар на 1 ставку
         })).slice(1);                     // Без 1-й строки
 
       res.writeHead(...headParams);

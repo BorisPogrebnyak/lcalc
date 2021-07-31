@@ -3,6 +3,7 @@ import fetchLessons from '../lessons/actions';
 export const TEACHERS_HAS_ERRORED = "TEACHERS_HAS_ERRORED";
 export const TEACHERS_IS_LOADING = "TEACHERS_IS_LOADING";
 export const TEACHERS_FETCH_SUCCESS = "TEACHERS_FETCH_SUCCESS";
+export const CHANGE_COEFF_RATE = 'CHANGE_COEFF_RATE';
 
 const hasErrored = hasErrored => ({
   type: TEACHERS_HAS_ERRORED,
@@ -19,7 +20,7 @@ const fetchTeachersSuccess = teachersList => ({
   teachersList
 });
 
-export default function fetchTeachers(url, lessons) {
+export function fetchTeachers(url) {
   return async dispatch => {
     try {
       dispatch(isLoading(true));
@@ -37,6 +38,7 @@ export default function fetchTeachers(url, lessons) {
         let teacherNumber = 0;
         for (const teacher of teachersList) {
           teacher.lessons = await fetchLessons(url, teacher.id, ++teacherNumber, dispatch);
+          teacher.lessonsPerRate = Math.round(teacher.lessons / teacher.coeffRate);
           await dispatch(fetchTeachersSuccess(teachersList));
         }
       })(await res.json());
@@ -45,4 +47,19 @@ export default function fetchTeachers(url, lessons) {
       dispatch(hasErrored(true));
     }
   }
+}
+
+export function onChangeCoeffRate(newCoeffRate, teacherNumber) {
+  return async dispatch => {
+    await dispatch(changeCoeffRate(newCoeffRate, teacherNumber));
+  }
+}
+
+const changeCoeffRate = (newCoeffRate, teacherNumber) => {
+  return ({
+    type: CHANGE_COEFF_RATE,
+    newCoeffRate,
+    teacherNumber,
+  })
+
 }
