@@ -3,7 +3,7 @@ import fetchLessons from '../lessons/actions';
 export const TEACHERS_HAS_ERRORED = "TEACHERS_HAS_ERRORED";
 export const TEACHERS_IS_LOADING = "TEACHERS_IS_LOADING";
 export const TEACHERS_FETCH_SUCCESS = "TEACHERS_FETCH_SUCCESS";
-export const CHANGE_COEFF_RATE = 'CHANGE_COEFF_RATE';
+export const CHANGE_LESSONS_PER_RATE = 'CHANGE_LESSONS_PER_RATE';
 
 const hasErrored = hasErrored => ({
   type: TEACHERS_HAS_ERRORED,
@@ -49,17 +49,12 @@ export function fetchTeachers(url) {
   }
 }
 
-export function onChangeCoeffRate(newCoeffRate, teacherNumber) {
-  return async dispatch => {
-    await dispatch(changeCoeffRate(newCoeffRate, teacherNumber));
-  }
-}
-
-const changeCoeffRate = (newCoeffRate, teacherNumber) => {
-  return ({
-    type: CHANGE_COEFF_RATE,
-    newCoeffRate,
-    teacherNumber,
-  })
-
+export function changeLessonsPerRate(coeffRate, teacher) {
+  return dispatch => dispatch(((coeffRate, teacher) => {
+    return ({
+      type: CHANGE_LESSONS_PER_RATE,
+      coeffRate,
+      teacher,
+    })
+  })(coeffRate, teacher));
 }

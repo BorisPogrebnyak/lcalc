@@ -2,7 +2,7 @@ import {
   TEACHERS_HAS_ERRORED,
   TEACHERS_IS_LOADING,
   TEACHERS_FETCH_SUCCESS,
-  CHANGE_COEFF_RATE,
+  CHANGE_LESSONS_PER_RATE,
 } from "./actions";
 
 const initialTeachers = {
@@ -22,20 +22,20 @@ export default function teachersReducer(state = initialTeachers, action) {
     case TEACHERS_FETCH_SUCCESS:
       return { ...state, teachersList: action.teachersList };
 
-    case CHANGE_COEFF_RATE:
-      return { ...state, teachersList: changeTeacher(state.teachersList, action.newCoeffRate, action.teacherNumber) };
+    case CHANGE_LESSONS_PER_RATE:
+      return { ...state, teachersList: changeLessonsPerRate(state.teachersList, action.teacher, action.coeffRate) };
 
     default:
       return state;
   }
 };
 
-// Меняет в teachersList у преподавателя с номером
-// teacherNumber параметры coeffRate и lessonsPerRate
-function changeTeacher(teachersList, newCoeffRate, teacherNumber) {
-  return [
-    ...teachersList.slice(0, teacherNumber),
-    { ...teachersList[teacherNumber], coeffRate: newCoeffRate, lessonsPerRate: Math.round(teachersList[teacherNumber].lessons / newCoeffRate) },
-    ...teachersList.slice(teacherNumber + 1)
-  ];
+// Меняет в teachersList у конкретного teacher
+// кол-во пар/ставку lessonsPerRate
+function changeLessonsPerRate(teachersList, teacher, newCoeffRate) {
+  return teachersList.map(currentTeacher =>
+    currentTeacher.id !== teacher.id
+      ? currentTeacher
+      : { ...currentTeacher, coeffRate: newCoeffRate, lessonsPerRate: Math.round(currentTeacher.lessons / newCoeffRate) }
+  );
 }

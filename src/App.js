@@ -15,6 +15,8 @@ import DateRange from './components/DateRange';
 import RefreshTeachersTable from './components/RefreshTeachersTable';
 import TeachersTable from './components/TeachersTable';
 
+// import TestEventsTable from './components/TestEventsTable';
+
 const { Header, Content, Footer } = Layout;
 const store = configureStore();
 
@@ -36,6 +38,7 @@ export default function App() {
             <RefreshTeachersTable />
             <TeachersTable />
           </Provider>
+          {/* <TestEventsTable /> */}
         </Content>
         <Footer style={styles.layoutFooterStyle}>Roga&Kopyta ©2021 Created by Ostap Bender</Footer>
       </Layout>

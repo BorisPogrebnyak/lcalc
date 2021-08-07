@@ -3,12 +3,11 @@ import { connect } from "react-redux";
 import { Table, InputNumber } from 'antd';
 
 import Spin from '../Spin';
-import { onChangeCoeffRate } from '../../store/teachers/actions';
+import { changeLessonsPerRate } from '../../store/teachers/actions';
 
 import './styles.css';
 
-function TeachersTable({ teachers, lessons, onChangeCoeffRate }) {
-  let coeffRate;
+function TeachersTable({ teachers, lessons, changeLessonsPerRate }) {
   const configColumns = [
     {
       title: 'Преподаватель',
@@ -27,17 +26,18 @@ function TeachersTable({ teachers, lessons, onChangeCoeffRate }) {
       dataIndex: 'coeffRate',
       key: 'coeffRate',
       sorter: (a, b) => a.coeffRate - b.coeffRate,
-      render: value => (
+      render: (coeffRate, teacher) => (
         <InputNumber
           size='small'
           bordered={false}
           min={0.25}
           max={1.5}
           step={0.25}
-          defaultValue={value}
-          onChange={value => coeffRate = value}
-        />
-      ),
+          defaultValue={coeffRate}
+          onChange={coeffRate => {
+            changeLessonsPerRate(coeffRate, teacher);
+          }}
+        />),
     },
     {
       title: 'Пар/1ст',
@@ -69,11 +69,6 @@ function TeachersTable({ teachers, lessons, onChangeCoeffRate }) {
       size='small'
       bordered
       pagination={{ pageSize: 8, }}
-      onRow={(record, rowIndex) => {
-        return {
-          onClick: () => onChangeCoeffRate(coeffRate, rowIndex),
-        }
-      }}
     />
   </>);
 }
@@ -84,7 +79,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onChangeCoeffRate,
+  changeLessonsPerRate,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeachersTable);
