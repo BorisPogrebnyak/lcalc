@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Button } from 'antd';
 
@@ -7,22 +7,19 @@ import 'antd/dist/antd.css';
 
 import { fetchTeachers } from '../../store/teachers/actions';
 
-class RefreshTeachersTable extends Component {
-  render() {
-    const { url, fetchTeachers, lessons, departments, teachers } = this.props;
-    const isLoading = lessons.isLoading ||
-      departments.isLoading || teachers.isLoading;
+function RefreshTeachersTable({ url, fetchTeachers, lessons, departments, teachers }) {
+  const isLoading = lessons.isLoading ||
+    departments.isLoading || teachers.isLoading;
 
-    return (
-      <Button
-        type='primary'
-        size='small'
-        loading={isLoading}
-        onClick={() => fetchTeachers(url)}>
-        Обновить
-      </Button>
-    );
-  }
+  return (
+    <Button
+      type='primary'
+      size='small'
+      loading={isLoading}
+      onClick={() => fetchTeachers(url)}>
+      Обновить
+    </Button>
+  );
 }
 
 const mapStateToProps = state => ({

@@ -34,9 +34,7 @@ function TeachersTable({ teachers, lessons, changeLessonsPerRate }) {
           max={1.5}
           step={0.25}
           defaultValue={coeffRate}
-          onChange={coeffRate => {
-            changeLessonsPerRate(coeffRate, teacher);
-          }}
+          onChange={coeffRate => changeLessonsPerRate(coeffRate, teacher)}
         />),
     },
     {
