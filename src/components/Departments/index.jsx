@@ -11,8 +11,7 @@ import { changeDepartmentId } from '../../store/url/actions';
 const { Option } = Select;
 
 function Departments({ hasErrored, isLoading, departments, changeDepartmentId, url, url: { selectedDepartmentId: defaultDepartmentId }, fetchDepartments }) {
-  useEffect(() => fetchDepartments(url), [fetchDepartments, url]);
-  // useEffect(() => fetchDepartments(url), []);
+  useEffect(() => fetchDepartments(url), []);
 
   return (<>
     <Spin isLoading={isLoading} />
