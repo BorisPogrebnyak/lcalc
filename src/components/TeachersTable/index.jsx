@@ -66,7 +66,13 @@ function TeachersTable({ teachers, lessons, changeLessonsPerRate }) {
       dataSource={dataSource}
       size='small'
       bordered
-      pagination={{ pageSize: 8, }}
+      pagination={{
+        // pageSize: 8,
+        defaultPageSize: 8,
+        pageSizeOptions: [8, 10, 16, 20, 50],
+        showSizeChanger: true,
+        size: 'small',
+      }}
     />
   </>);
 }

@@ -27,7 +27,7 @@ express()
     res.send(`<h1 align=center>Ошибка ${err.status}</h1>`);
   })
   .listen(port,
-    () => console.log(`Express server слушает по http://localhost:${port}/`));
+    () => console.log(`Express server listens on http://localhost:${port}/`));
 
 function normalizePort(val) {
   const port = parseInt(val, 10);

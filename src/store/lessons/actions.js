@@ -11,11 +11,11 @@ const isLoading = isLoading => ({
   isLoading
 });
 
-export default async function fetchLessons(url, teacherId, teacherNumber, dispatch) {
+export default async function fetchLessons(url, teacherId, dispatch) {
   try {
     dispatch(isLoading(true));
 
-    const res = await fetch(`${url.hostServer}/lessons?teacherId=${teacherId}&teacherNumber=${teacherNumber}`);
+    const res = await fetch(`${url.hostServer}/lessons?teacherId=${teacherId}`);
 
     if (!res.ok) {
       throw new Error(res.statusText);

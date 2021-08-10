@@ -35,9 +35,8 @@ export function fetchTeachers(url) {
 
       (async teachersList => {
         await dispatch(fetchTeachersSuccess(teachersList));
-        let teacherNumber = 0;
         for (const teacher of teachersList) {
-          teacher.lessons = await fetchLessons(url, teacher.id, ++teacherNumber, dispatch);
+          teacher.lessons = await fetchLessons(url, teacher.id, dispatch);
           teacher.lessonsPerRate = Math.round(teacher.lessons / teacher.coeffRate);
           await dispatch(fetchTeachersSuccess(teachersList));
         }
