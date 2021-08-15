@@ -1,9 +1,9 @@
 const express = require('express');
 const createError = require('http-errors');
 const cheerio = require(`cheerio`);
-const headParams = require('./services/headParams');
-const getBrowser = require('./services/getBrowser');
-const getPage = require('./services/getPage');
+const headParams = require('./utils/headParams');
+const getBrowser = require('./utils/getBrowser');
+const getPage = require('./utils/getPage');
 
 const router = express.Router();
 

@@ -8,7 +8,7 @@ import '../node_modules/tablesorter/dist/css/theme.blue.css';
 import '../node_modules/spin.js/spin.css';
 
 import { configureStore } from './store/configure_store';
-import puppeteerClose from './services/puppeteerClose';
+import puppeteerClose from './utils/puppeteerClose';
 import CurrentMoment from './components/CurrentMoment';
 import Departments from './components/Departments';
 import DateRange from './components/DateRange';

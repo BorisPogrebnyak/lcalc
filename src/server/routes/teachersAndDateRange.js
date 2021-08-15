@@ -1,7 +1,7 @@
 const express = require('express');
 const createError = require('http-errors');
 const cheerio = require(`cheerio`);
-const headParams = require('./services/headParams');
+const headParams = require('./utils/headParams');
 const dayjs = require(`dayjs`);
 
 const router = express.Router();

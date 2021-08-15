@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const logger = require('morgan');
 const createError = require('http-errors');
 
@@ -12,6 +13,7 @@ const port = normalizePort(process.env.PORT || '3001');
 
 express()
   .use(logger('dev'))
+  .use(express.static(path.join(__dirname, '../../build')))
 
   .use('/', routerIndex)
   .use('/departments', routerDepartments)
