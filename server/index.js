@@ -13,7 +13,7 @@ const port = normalizePort(process.env.PORT || '3001');
 
 express()
   .use(logger('dev'))
-  .use(express.static(path.join(__dirname, '../../build')))
+  .use(express.static(path.join(__dirname, '../build')))
 
   .use('/', routerIndex)
   .use('/departments', routerDepartments)
