@@ -6,9 +6,13 @@ import {
   CHANGE_DATE_RANGE_END,
 } from "./actions";
 
+// Получение протокола и имени хоста
+function hostServer() {
+  return `${window.location.protocol}//${window.location.hostname}`;
+}
+
 const initialUrl = () => ({
-  // hostServer: 'http://localhost:80',
-  hostServer: 'http://localhost:3001',
+  hostServer: hostServer(),
   targetUrl: 'https://erp.kname.edu.ua/time-table/teacher?type=0',
   selectedDepartmentId: '169', // АКИТ; '78' - КН
   dateStart: defaultDateRangeStart(),
