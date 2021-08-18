@@ -7,6 +7,7 @@ import {
 } from "./actions";
 
 const initialUrl = () => ({
+  // hostServer: 'http://localhost:80',
   hostServer: 'http://localhost:3001',
   targetUrl: 'https://erp.kname.edu.ua/time-table/teacher?type=0',
   selectedDepartmentId: '169', // АКИТ; '78' - КН
