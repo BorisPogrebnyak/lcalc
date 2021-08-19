@@ -4,9 +4,10 @@ const puppeteer = require(`puppeteer`);
 async function getBrowser() {
   try {
     return await puppeteer.launch({
-      headless: false,
-      args: ['--no-sandbox',
-        '--disable-setuid-sandbox'],
+      args: ['--no-sandbox'],
+      // headless: false,
+      // args: ['--no-sandbox',
+      //   '--disable-setuid-sandbox'],
       // ///
       // ignoreHTTPSErrors: true,
     });
