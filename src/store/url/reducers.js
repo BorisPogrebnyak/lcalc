@@ -12,7 +12,7 @@ function hostServer() {
   return (window.location.hostname === 'localhost'
     ? `${window.location.protocol}//${window.location.hostname}` // dev
     : ''); // prod
-  return 'http://localhost';
+  // return 'http://localhost';
 }
 
 const initialUrl = () => ({
