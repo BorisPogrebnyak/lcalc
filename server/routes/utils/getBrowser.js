@@ -5,6 +5,7 @@ async function getBrowser() {
   try {
     return await puppeteer.launch({
       args: ['--no-sandbox'],
+      devtools: true,
       // headless: false, // Heroku - не работает
     });
   } catch (err) {
