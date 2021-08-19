@@ -6,8 +6,9 @@ async function getBrowser() {
   try {
     return await puppeteer.launch({
       headless: false,
-      args: ['--no-sandbox',
-        '--disable-setuid-sandbox'],
+      // args: ['--no-sandbox',
+      // '--disable-setuid-sandbox'],
+      args: ['--no-sandbox'],
       // ignoreHTTPSErrors: true,
     });
   } catch (err) {
