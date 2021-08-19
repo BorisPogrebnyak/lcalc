@@ -8,11 +8,9 @@ import {
 
 // Получение протокола и имени хоста
 function hostServer() {
-  // return `${window.location.protocol}//${window.location.hostname}`;
   return (window.location.hostname === 'localhost'
     ? `${window.location.protocol}//${window.location.hostname}` // dev
     : ''); // prod
-  // return 'http://localhost';
 }
 
 const initialUrl = () => ({

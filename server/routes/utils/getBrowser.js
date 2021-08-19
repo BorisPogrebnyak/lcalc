@@ -5,11 +5,7 @@ async function getBrowser() {
   try {
     return await puppeteer.launch({
       args: ['--no-sandbox'],
-      // headless: false,
-      // args: ['--no-sandbox',
-      //   '--disable-setuid-sandbox'],
-      // ///
-      // ignoreHTTPSErrors: true,
+      headless: false, // Heroku - не работает
     });
   } catch (err) {
     console.error(`Не удалось создать экземпляр браузера => : ${err}`);

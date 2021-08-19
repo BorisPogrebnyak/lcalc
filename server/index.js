@@ -9,7 +9,6 @@ const routerTeachersAndDateRange = require('./routes/teachersAndDateRange');
 const routerLessons = require('./routes/lessons');
 const routerPuppeteerClose = require('./routes/puppeteerClose');
 
-// const port = normalizePort(process.env.PORT || '3001');
 const port = normalizePort(process.env.PORT || '80');
 
 express()
