@@ -7,7 +7,6 @@ async function getBrowser() {
       headless: false,
       args: ['--no-sandbox',
         '--disable-setuid-sandbox'],
-
       // ignoreHTTPSErrors: true,
     });
   } catch (err) {
