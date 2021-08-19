@@ -2,6 +2,7 @@ const puppeteer = require(`puppeteer`);
 
 // Вернуть созданный экземпляр браузера
 async function getBrowser() {
+  console.log('getBrowser process.env: ', process.env);
   try {
     return await puppeteer.launch({
       args: ['--no-sandbox'],
