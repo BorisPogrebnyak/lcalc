@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # my
-CSRF.txt
 robots.txt
+.env

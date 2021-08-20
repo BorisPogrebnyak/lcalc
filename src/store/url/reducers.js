@@ -8,6 +8,7 @@ import {
 
 // Получение протокола и имени хоста
 function hostServer() {
+  // NODE_ENV: 'production',
   return (window.location.hostname === 'localhost'
     ? `${window.location.protocol}//${window.location.hostname}` // dev
     : ''); // prod
