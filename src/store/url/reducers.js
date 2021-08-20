@@ -6,16 +6,12 @@ import {
   CHANGE_DATE_RANGE_END,
 } from "./actions";
 
-// Получение протокола и имени хоста
-function hostServer() {
-  // NODE_ENV: 'production',
-  return (window.location.hostname === 'localhost'
-    ? `${window.location.protocol}//${window.location.hostname}` // dev
-    : ''); // prod
-}
+require('dotenv').config();
 
 const initialUrl = () => ({
-  hostServer: hostServer(),
+  hostServer: process.env.NODE_ENV === 'development'
+    ? 'http://localhost' // dev  - localhost
+    : '',                // prod - Heroku
   targetUrl: 'https://erp.kname.edu.ua/time-table/teacher?type=0',
   selectedDepartmentId: '169', // АКИТ; '78' - КН
   dateStart: defaultDateRangeStart(),

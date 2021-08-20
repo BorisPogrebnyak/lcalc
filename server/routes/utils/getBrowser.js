@@ -7,7 +7,7 @@ async function getBrowser() {
     return await puppeteer.launch({
       args: ['--no-sandbox'],
       headless: process.env.NODE_ENV === 'development'
-        ? false // dev - localhost
+        ? false // dev  - localhost
         : true, // prod - Heroku
     });
   } catch (err) {
