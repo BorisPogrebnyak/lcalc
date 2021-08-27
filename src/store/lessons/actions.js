@@ -28,4 +28,3 @@ export default async function fetchLessons(url, teacherId, dispatch) {
     dispatch(hasErrored(true));
   }
 }
-

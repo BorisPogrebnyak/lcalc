@@ -12,7 +12,7 @@ router.get('/',
     try {
       await page.select('.card-body > #filter-form #timetableform-teacherid', `${req.query.teacherId}`);
       await page.waitForSelector('.card-body > #filter-form #timetableform-teacherid');
-      await page.waitForSelector('#timeTable');
+      await page.waitForSelector('#timeTable td');
 
       // Кол-во непустых клеточек
       // в расписании преподавателя
