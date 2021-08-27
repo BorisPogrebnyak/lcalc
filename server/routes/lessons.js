@@ -19,6 +19,8 @@ router.get('/',
       // `` - numberToString
       const lessons = `${cheerio.load(await page.content())('#timeTable td [data-content!=""]').length}`;
 
+      console.log(lessons);
+
       res.writeHead(...headParams);
       res.end(lessons);
     } catch (err) {

@@ -15,6 +15,7 @@ router.get('/',
       if (typeof browser !== 'undefined') {
         await browser.close();
       }
+
       browser = await getBrowser();
       page = await getPage(browser, req.query.targetUrl);
 
