@@ -18,7 +18,8 @@ router.get('/',
       //   return el.attribs.value === req.query.teacherId;
       // }));
 
-      const options = cheerio.load(await page.content())(`#timetableform-teacherid option`);
+      // Просто задержка?????
+      await page.select('.card-body > #filter-form #timetableform-teacherid', cheerio.load(await page.content())(`#timetableform-teacherid option`)[1].attribs.value);
 
       await page.select('.card-body > #filter-form #timetableform-teacherid', `${req.query.teacherId}`);
       await page.waitForSelector('.card-body > #filter-form #timetableform-teacherid');
